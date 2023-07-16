@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  django:
+    volumes:
+      - static:/static
+      - ./mvt_companion:/app
+    env_file:
+      - .env
+    restart: unless-stopped
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+
+  db:
+    image: postgres:15.2
+    volumes:
+      - database_volume:/var/lib/postgresql/data
+    env_file:
+    - .env
+
+volumes:
+  static:
+  database_volume:
+

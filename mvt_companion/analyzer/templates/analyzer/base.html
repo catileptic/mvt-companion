@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MVT Companion</title>
+    <meta name="description" content="MVT web app">
+    <meta name="author" content="Alex Stefanescu">
+
+    <meta property="og:title" content="MVT Companion">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="localhost">
+    <meta property="og:description" content="MVT Companion">
+
+    <link rel="icon" href="{% static 'analyzer/pink.png' %}">
+    <!-- <link rel="icon" href="/favicon.svg" type="image/svg+xml"> -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'analyzer/bulma.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'analyzer/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'analyzer/Fork-Awesome-1.2.0/css/fork-awesome.min.css' %}">
+</head>
+
+
+<body>
+    {% block body %}
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+{% extends "homepage.html" %}
+
+{% block content %}
+<div class="container">
+    <section class="hero has-background-danger-light">
+        <div class="hero-body">
+            <div class="block">
+                You can visualize results from MVT scans you have already performed.
+            </div>
+            <div class="block">
+                In order to make sure your scan results get detected, place the output of a MVT scan in the
+                <span class="is-family-monospace">mvt_companion</span> directory.
+            </div>
+            <form action="load_scan_results" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="button is-outlined">Gather scans</button>
+            </form>
+        </div>
+    </section>
+
+    <section>
+        {% if scan_result_dir_list %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Scan name</th>
+                    <th>Operating system</th>
+                    <th>Created at</th>
+                    <th class="has-text-centered">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for scan_result in scan_result_dir_list %}
+                <tr>
+                    <td><a href="{% url 'analyzer:scan_result_detail' scan_result.name %}">{{ scan_result.name }}</a>
+                    </td>
+                    <td>{{ scan_result.get_operating_system_display }}</td>
+                    <td>{{ scan_result.date_added }}</td>
+                    <td class="has-text-centered">
+                        <form action="{% url 'analyzer:delete_scan_result' scan_result.name %}" , method="POST">
+                            {% csrf_token %}
+                            <button type="submit"><i class="fa fa-trash"></i></button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No scan results found.</p>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}

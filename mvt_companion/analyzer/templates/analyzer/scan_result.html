@@ -1,0 +1,83 @@
+{% extends "homepage.html" %}
+
+{% block content %}
+<div class="container">
+    <section class="hero is-small has-background-danger-light">
+        <div class="hero-body">
+            <div class="block has-text-weight-semibold">
+                {% if scan_result.operating_system == "android" %}
+                <i class="fa fa-android has-text-success pr-2" aria-hidden="true"></i>
+                {% endif %}
+                {% if scan_result.operating_system == "ios" %}
+                <i class="fa fa-apple has-text-info pr-2" aria-hidden="true"></i>
+                {% endif %}
+                {% if scan_result.operating_system == "unknown" %}
+                <i class="fa fa-fax has-text-danger pr-2" aria-hidden="true"></i>
+                {% endif %}
+                {{ scan_result.name }}
+            </div>
+            <div class="block"></div>
+
+            <article class="content message is-light">
+                {% if scan_result.overall_result == "clean" %}
+                <div class="message-header is-justify-content-left">
+                    <i class="fa fa-check-square-o has-text-success pr-2" aria-hidden="true"></i>
+                    {{ scan_result.get_overall_result_display }}
+                </div>
+                    {% endif %}
+                    {% if scan_result.overall_result == "warning" %}
+                    <div class="message-header is-justify-content-left">
+                    <i class="fa fa-exclamation-triangle has-text-danger pr-2" aria-hidden="true"></i>
+                    {{ scan_result.get_overall_result_display }}
+                </div>
+                    <div class="message-body">
+                        <p>{{ scan_result.warnings | linebreaksbr }}</p>
+                    </div>
+                    {% endif %}
+                    
+                
+            </article>
+        </div>
+    </section>
+    <section class="p-5">
+        <div class="block">
+            <p><b>Mobile verification toolkit version:</b> {{ scan_result.mvt_version }}</p>
+            <p><b>MVT scan performed on:</b> {{ scan_result.scan_date }}</p>
+            <p><b>Device operating system:</b> {{ scan_result.get_operating_system_display }}</p>
+            <p><b>Last security update:</b> 
+                {% if scan_result.old_security_patch %}
+                <i class="fa fa-exclamation-triangle has-text-danger" aria-hidden="true"></i>
+                {% else %}
+                <i class="fa fa-check-square-o has-text-success" aria-hidden="true"></i>
+                {% endif %} {{ scan_result.last_security_path_date }}</p>
+        </div>
+    </section>
+
+    {% if scan_result.installed_apps %}
+    <section>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Application name</th>
+                <th>Creator</th>
+                <th>Source</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for application in scan_result.installed_apps %}
+                <tr>
+                    <td>{{ application.app_name }}</td>
+                    <td>{{ application.creator }}</td>
+                    <td>{{ application.source }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </section>
+    {% endif %}
+</div>
+
+
+
+</div>
+{% endblock %}
