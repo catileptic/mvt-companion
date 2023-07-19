@@ -6,6 +6,8 @@ The **Mobile Verification Toolkit** has been developed and released by the [Amne
 
 **MVT-companion** was developed by [catileptic](https://github.com/catileptic) during her Fellowship with the Amnesty International Security Lab. It is meant to be used to visualize the results of MVT scans. 
 
+![Untitled design(1)](https://github.com/catileptic/mvt-companion/assets/14028425/9bfa35b6-96a9-42df-8536-949a62f0bc24)
+
 ## Components
 
 **MVT-companion** is a **Django** application that uses **PostgreSQL** for storage.
