@@ -24,6 +24,8 @@ Run the app
 make up
 ```
 
+You can see the app running by visiting `localhost:8000`.
+
 **To import scan results**, add a `mvt_output` dir to the root and add a dir containing all the results directly inside it.
 **Make sure to do this before running `make up`**.
 ```
