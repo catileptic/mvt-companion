@@ -22,6 +22,9 @@ def index(request):
 def load_scan_results(request):
     p = Path("./mvt_output")
 
+    if not p.exists():
+        p.mkdir()
+
     scan_result_dir_list = [x for x in p.iterdir() if x.is_dir()]
 
     # TODO - the backup name must be unique
@@ -77,7 +80,7 @@ def load_scan_results(request):
                             "app_name": item.get("itemName", "N/A"),
                             "creator": item.get("artistName", "N/A"),
                             "source": item.get("sourceApp", "N/A")
-                        })                        
+                        })
 
             scan_result, created = ScanResult.objects.get_or_create(
                 name=scan_result_name,

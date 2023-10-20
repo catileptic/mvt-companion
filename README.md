@@ -1,12 +1,12 @@
 # MVT-companion
 
-This is a Proof of Concept web app meant to serve as a companion to the [Mobile Verification Toolkit](https://github.com/mvt-project/mvt). 
+This is a Proof of Concept web app meant to serve as a companion to the [Mobile Verification Toolkit](https://github.com/mvt-project/mvt).
 
-The **Mobile Verification Toolkit** has been developed and released by the [Amnesty International Security Lab](https://www.amnesty.org/en/tech/) in July 2021 in the context of the [Pegasus Project](https://forbiddenstories.org/about-the-pegasus-project/) along with [a technical forensic methodology](https://www.amnesty.org/en/latest/research/2021/07/forensic-methodology-report-how-to-catch-nso-groups-pegasus/). 
+The **Mobile Verification Toolkit** has been developed and released by the [Amnesty International Security Lab](https://www.amnesty.org/en/tech/) in July 2021 in the context of the [Pegasus Project](https://forbiddenstories.org/about-the-pegasus-project/) along with [a technical forensic methodology](https://www.amnesty.org/en/latest/research/2021/07/forensic-methodology-report-how-to-catch-nso-groups-pegasus/).
 
-**MVT-companion** was developed by [catileptic](https://github.com/catileptic) during her Fellowship with the Amnesty International Security Lab. It is meant to be used to visualize the results of MVT scans. 
+**MVT-companion** was developed by [catileptic](https://github.com/catileptic) during her Fellowship with the Amnesty International Security Lab. It is meant to be used to visualize the results of MVT scans.
 
-![Untitled design(1)](https://github.com/catileptic/mvt-companion/assets/14028425/9bfa35b6-96a9-42df-8536-949a62f0bc24)
+![Image of the UI](https://securitylab.amnesty.org/wp-content/uploads/2023/09/image.png)
 
 ## Components
 
@@ -21,7 +21,7 @@ Build the Docker image
 make build
 ```
 
-Run the app 
+Run the app
 ```
 make up
 ```
