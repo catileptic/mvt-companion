@@ -1,9 +1,10 @@
 COMPOSE=docker-compose -f docker-compose.yml
 
-build: 
+build:
+	./make_dotenv.sh
 	$(COMPOSE) build
 
-no-cache: 
+no-cache:
 	$(COMPOSE) build --no-cache
 
 up:
@@ -22,4 +23,4 @@ stop:
 	$(COMPOSE) down --remove-orphans
 
 shell:
-	$(COMPOSE) exec -it django /bin/sh
+	docker compose exec -it django /bin/sh
